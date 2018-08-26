@@ -42,10 +42,19 @@ namespace GPSHAddressLocationEngine
                     Console.WriteLine(ex.StackTrace);
                 }
                 initDataBaseValue = 0;
+                generated = false;
             }
 
             Console.WriteLine("Total of inserts generated {0}", initDataBaseValue);
-            Console.WriteLine("File created");
+            if (generated)
+            {
+                Console.WriteLine("The file was created. Please enter to continue");
+            }
+            else
+            {
+                Console.WriteLine("The file could not be generated. Please enter to continue");
+            }
+
             return generated;
         }
 

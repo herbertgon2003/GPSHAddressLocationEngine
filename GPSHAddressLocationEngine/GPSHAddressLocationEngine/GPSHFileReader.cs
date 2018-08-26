@@ -13,7 +13,7 @@ namespace GPSHAddressLocationEngine
         /// <returns>List of file lines</returns>
         public List<AddressLocation> GetAddressLocationFromFile()
         {
-            Console.WriteLine("Start reading file");            
+            Console.WriteLine("Start reading the file");            
             var addressLocationList = new List<AddressLocation>();            
             try
             {
@@ -61,7 +61,7 @@ namespace GPSHAddressLocationEngine
                     Console.WriteLine(ex.StackTrace);
                 }                
             }            
-            Console.WriteLine("Finish of read the file");          
+            Console.WriteLine("Finish reading the file");          
 
             return addressLocationList;
         }
