@@ -1,0 +1,9 @@
+C:\Users\Herbert Gonzalez\source\repos\GPSHAddressLocationEngine\GPSHAddressLocationEngine\bin\Debug\Files\Default_Script.sql
+C:\Users\Herbert Gonzalez\source\repos\GPSHAddressLocationEngine\GPSHAddressLocationEngine\bin\Debug\Files\Localization.txt
+C:\Users\Herbert Gonzalez\source\repos\GPSHAddressLocationEngine\GPSHAddressLocationEngine\bin\Debug\Files\Tbl_Cb_AddressLocation.sql
+C:\Users\Herbert Gonzalez\source\repos\GPSHAddressLocationEngine\GPSHAddressLocationEngine\bin\Debug\GPSHAddressLocationEngine.exe.config
+C:\Users\Herbert Gonzalez\source\repos\GPSHAddressLocationEngine\GPSHAddressLocationEngine\bin\Debug\GPSHAddressLocationEngine.exe
+C:\Users\Herbert Gonzalez\source\repos\GPSHAddressLocationEngine\GPSHAddressLocationEngine\bin\Debug\GPSHAddressLocationEngine.pdb
+C:\Users\Herbert Gonzalez\source\repos\GPSHAddressLocationEngine\GPSHAddressLocationEngine\obj\Debug\GPSHAddressLocationEngine.csproj.CoreCompileInputs.cache
+C:\Users\Herbert Gonzalez\source\repos\GPSHAddressLocationEngine\GPSHAddressLocationEngine\obj\Debug\GPSHAddressLocationEngine.exe
+C:\Users\Herbert Gonzalez\source\repos\GPSHAddressLocationEngine\GPSHAddressLocationEngine\obj\Debug\GPSHAddressLocationEngine.pdb
