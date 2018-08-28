@@ -44,3 +44,6 @@ GPSHAddressLocationEngine/.vs/GPSHAddressLocationEngine/v15/Server/sqlite3/stora
 GPSHAddressLocationEngine/.vs/GPSHAddressLocationEngine/v15/Server/sqlite3/storage.ide-shm
 GPSHAddressLocationEngine/.vs/GPSHAddressLocationEngine/v15/Server/sqlite3/storage.ide
 GPSHAddressLocationEngine/.vs/GPSHAddressLocationEngine/v15/.suo
+GPSHAddressLocationEngine/GPSHAddressLocationEngine/bin/*
+GPSHAddressLocationEngine/GPSHAddressLocationEngine/obj/*
+*.config
