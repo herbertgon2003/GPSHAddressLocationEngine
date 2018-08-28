@@ -16,6 +16,8 @@ namespace GPSHAddressLocationEngine.Objects
         public string DistritoDescription { get; set; }
         public int? BarrioId { get; set; }
         public string BarrioDescription { get; set; }
+        public Utilities.Constants.TipoUbicacion TypeId { get; set; }  
+        public string CountryCode { get; set; }
         public int DataBaseId { get; set; }
         public int? DataBaseParentId { get; set; }
 

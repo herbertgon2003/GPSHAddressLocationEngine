@@ -79,7 +79,9 @@ namespace GPSHAddressLocationEngine
                     {
                         ProvinciaId = addressLocation.ProvinciaId,
                         ProvinciaDescription = addressLocation.ProvinciaDescription,
-                        DataBaseId = initDataBaseValue
+                        DataBaseId = initDataBaseValue,
+                        TypeId = Utilities.Constants.TipoUbicacion.Provincia,
+                        CountryCode = Utilities.Constants.COUNTRY_CODE
                     };
                     provinciaList.Add(currentAddressLocation);
                     initDataBaseValue++;
@@ -109,7 +111,9 @@ namespace GPSHAddressLocationEngine
                         ProvinciaId = addressLocation.ProvinciaId,
                         CantonId = addressLocation.CantonId,
                         CantonDescription = addressLocation.CantonDescription,
-                        DataBaseId = initDataBaseValue
+                        DataBaseId = initDataBaseValue,
+                        TypeId = Utilities.Constants.TipoUbicacion.Canton,
+                        CountryCode = Utilities.Constants.COUNTRY_CODE
                     };
                     cantonList.Add(currentAddressLocation);
                     initDataBaseValue++;
@@ -152,7 +156,9 @@ namespace GPSHAddressLocationEngine
                         CantonId = addressLocation.CantonId,
                         DistritoId = addressLocation.DistritoId,
                         DistritoDescription = addressLocation.DistritoDescription,
-                        DataBaseId = initDataBaseValue
+                        DataBaseId = initDataBaseValue,                        
+                        TypeId = Utilities.Constants.TipoUbicacion.Distrito,
+                        CountryCode = Utilities.Constants.COUNTRY_CODE
                     };
                     distritoList.Add(currentAddressLocation);
                     initDataBaseValue++;
@@ -197,7 +203,9 @@ namespace GPSHAddressLocationEngine
                         DistritoId = addressLocation.DistritoId,
                         BarrioId = addressLocation.BarrioId,
                         BarrioDescription = addressLocation.BarrioDescription,
-                        DataBaseId = initDataBaseValue
+                        DataBaseId = initDataBaseValue,
+                        TypeId = Utilities.Constants.TipoUbicacion.Barrio,
+                        CountryCode = Utilities.Constants.COUNTRY_CODE
                     };
                     barrioList.Add(currentAddressLocation);
                     initDataBaseValue++;
@@ -232,7 +240,7 @@ namespace GPSHAddressLocationEngine
             lines.Add(Utilities.Constants.COUNT);
             foreach (AddressLocation provincia in provinciaList)
             {
-                lines.Add(InsertText(provincia.DataBaseId, null, provincia.ProvinciaId, provincia.ProvinciaDescription));
+                lines.Add(InsertText(provincia.DataBaseId, null, provincia.ProvinciaId, provincia.ProvinciaDescription, provincia.CountryCode, Convert.ToInt32(provincia.TypeId)));
             }
             string currentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             string path = string.Format("{0}{1}", currentDirectory, Utilities.Constants.PROVINCIA_FILE);
@@ -250,7 +258,7 @@ namespace GPSHAddressLocationEngine
             lines.Add(Utilities.Constants.COUNT);
             foreach (AddressLocation canton in cantonList)
             {
-                lines.Add(InsertText(canton.DataBaseId, canton.DataBaseParentId, canton.CantonId, canton.CantonDescription));
+                lines.Add(InsertText(canton.DataBaseId, canton.DataBaseParentId, canton.CantonId, canton.CantonDescription, canton.CountryCode, Convert.ToInt32(canton.TypeId)));
             }
             string currentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             string path = string.Format("{0}{1}", currentDirectory, Utilities.Constants.CANTON_FILE);
@@ -268,7 +276,7 @@ namespace GPSHAddressLocationEngine
             lines.Add(Utilities.Constants.COUNT);
             foreach (AddressLocation distrito in distritoList)
             {
-                lines.Add(InsertText(distrito.DataBaseId, distrito.DataBaseParentId, distrito.DistritoId, distrito.DistritoDescription));
+                lines.Add(InsertText(distrito.DataBaseId, distrito.DataBaseParentId, distrito.DistritoId, distrito.DistritoDescription, distrito.CountryCode, Convert.ToInt32(distrito.TypeId)));
             }
             string currentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             string path = string.Format("{0}{1}", currentDirectory, Utilities.Constants.DISTRITO_FILE);
@@ -286,7 +294,7 @@ namespace GPSHAddressLocationEngine
             lines.Add(Utilities.Constants.COUNT);
             foreach (AddressLocation barrio in barrioList)
             {
-                lines.Add(InsertText(barrio.DataBaseId, barrio.DataBaseParentId, barrio.BarrioId, barrio.BarrioDescription));
+                lines.Add(InsertText(barrio.DataBaseId, barrio.DataBaseParentId, barrio.BarrioId, barrio.BarrioDescription, barrio.CountryCode, Convert.ToInt32(barrio.TypeId)));
             }
             string currentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             string path = string.Format("{0}{1}", currentDirectory, Utilities.Constants.BARRIO_FILE);
@@ -302,13 +310,15 @@ namespace GPSHAddressLocationEngine
         /// <param name="id"></param>
         /// <param name="description"></param>
         /// <returns>The line to insert</returns>
-        private string InsertText(int idDataBase, int? parentId, int? id, string description)
+        private string InsertText(int idDataBase, int? parentId, int? id, string description, string country, int ubicationId)
         {           
             StringBuilder script = new StringBuilder(Utilities.Constants.INSERT_SCRIPT_TEXT);
             script.Replace(Utilities.Constants.DATA_BASE_ID, idDataBase.ToString());
             script.Replace(Utilities.Constants.PARENT_ID, string.IsNullOrEmpty(parentId.ToString())? Utilities.Constants.NULL_VALUE : parentId.ToString());
             script.Replace(Utilities.Constants.HACIENDA_CODE, id.ToString());
             script.Replace(Utilities.Constants.HACIENDA_DESCRIPTION, description);
+            script.Replace(Utilities.Constants.COUNTRY_DATA, country);
+            script.Replace(Utilities.Constants.UBICATION_TYPE_ID, ubicationId.ToString());
 
             return script.ToString();
         }

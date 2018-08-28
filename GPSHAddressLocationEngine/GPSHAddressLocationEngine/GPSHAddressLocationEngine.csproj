@@ -54,15 +54,26 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Files\Default_Script.sql">
+    <None Include="Files\Default_Script.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Files\Localization.txt">
+    </None>
+    <None Include="Files\Localization.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Files\Tbl_Cb_AddressLocation.sql">
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Files\Tables\0001 - Script - Creacion Tabla - Tbl_Cb_Tipo_Ubicacion.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
+    <None Include="Files\Tables\0002 - Script - Creacion Tabla - Tbl_Cb_Ubicacion.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Files\Insert Data\0001 - Script - Insertar Tipo Ubicacion.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
